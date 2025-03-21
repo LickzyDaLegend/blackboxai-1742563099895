@@ -1,0 +1,138 @@
+/* Custom styles */
+body {
+    background: url('https://i.makeagif.com/media/9-06-2024/FRQUCX.gif') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+}
+
+/* Add overlay to make text more readable */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
+    z-index: 0;
+}
+
+/* Ensure content stays above overlay */
+header, main, footer, .fixed {
+    position: relative;
+    z-index: 1;
+}
+
+/* Music button animations */
+.music-btn.playing {
+    animation: glow 2s infinite;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+}
+
+/* Link hover effects */
+.text-blue-500 {
+    transition: all 0.3s ease;
+}
+
+.text-blue-500:hover {
+    color: #60a5fa;
+    text-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+}
+
+/* Project card hover effects */
+.bg-gray-800 {
+    transition: all 0.3s ease;
+}
+
+.bg-gray-800:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Skills section styles */
+.skills-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin: 10px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.skills-bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: linear-gradient(to right, #60a5fa, #3b82f6);
+    border-radius: 5px;
+    transition: width 1s ease;
+}
+
+.skills-html::after { width: 95%; }
+.skills-css::after { width: 85%; }
+.skills-js::after { width: 65%; }
+.skills-python::after { width: 99%; }
+.skills-java::after { width: 25%; }
+.skills-cpp::after { width: 25%; }
+.skills-csharp::after { width: 25%; }
+.skills-mongodb::after { width: 50%; }
+.skills-sql::after { width: 50%; }
+.skills-react::after { width: 20%; }
+.skills-typescript::after { width: 20%; }
+
+.skills-card, .about-me-card {
+    background: rgba(31, 41, 55, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Typewriter effect */
+.typewriter-text {
+    overflow: hidden;
+    border-right: 2px solid #fff;
+    white-space: pre-wrap;
+    margin: 0 auto;
+    opacity: 0;
+    animation: 
+        fadeIn 0.1s forwards,
+        typing 4s steps(100, end) 0.1s forwards,
+        blink-caret .75s step-end infinite;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes typing {
+    from { max-height: 0; }
+    to { max-height: 500px; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #fff }
+}
+
+/* Responsive text handling */
+@media (max-width: 768px) {
+    .typewriter-text {
+        white-space: pre-wrap;
+        border-right: none;
+    }
+}
